@@ -31,17 +31,10 @@ Having your code reviewed
 * Don't take it personally. The review is of the code, not you.
 * Explain why the code exists. ("It's like that because of these reasons. Would
   it be more clear if I rename this class/file/method/variable?")
-* Extract some changes and refactorings into future tickets/stories.
-* Link to the code review from the ticket/story. ("Ready for review:
-  https://github.com/organization/project/pull/1")
-* Push commits based on earlier rounds of feedback as isolated commits to the
-  branch. Do not squash until the branch is ready to merge. Reviewers should be
-  able to read individual updates based on their earlier feedback.
 * Seek to understand the reviewer's perspective.
 * Try to respond to every comment.
 * Wait to merge the branch until another person signs off.
-* Wait to merge the branch until Continuous Integration (TDDium, TravisCI, etc.)
-  tells you the test suite is green in the branch.
+* Wait to merge the branch until all tests are green.
 
 Reviewing code
 --------------
@@ -50,9 +43,8 @@ Understand why the code is necessary (bug, user experience, refactoring). Then:
 
 * Communicate which ideas you feel strongly about and those you don't.
 * Identify ways to simplify the code while still solving the problem.
-* If discussions turn too philosophical or academic, move the discussion offline
-  to a regular Friday afternoon technique discussion. In the meantime, let the
-  author make the final decision on alternative implementations.
+* If discussions turn too philosophical or academic, move the discussion offline,
+  defer to the project lead's judgment, and, if you think their call sucks, tell them.
 * Offer alternative implementations, but assume the author already considered
   them. ("What do you think about using a custom validator here?")
 * Seek to understand the author's perspective.
