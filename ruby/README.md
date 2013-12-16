@@ -102,9 +102,32 @@ Formatting
     end
     def another_method
     end
+
+    # good
+    def method
+    end
+
+    def another_method
+    end
     ```
 
 * Use newlines around multi-line blocks.
+    ```Ruby
+    # bad
+    [1, 2, 3].map { |element|
+      element * element
+    }
+    puts 'THIS IS SO MATH!'
+
+
+    # bad
+    [1, 2, 3].map { |element|
+      element * element
+    }
+
+    puts 'THIS IS SO MATH!'
+    ```
+
 * Use spaces around operators, after commas, after colons and semicolons, around
   `{` and before `}`.
 * Use [Unix-style line endings] (`\n`).
