@@ -3,6 +3,8 @@ Ruby
 
 Formatting
 ----------
+* Delete trailing whitespace or configure your editor to do so.
+* Use 2 space indentation (no tabs).
 
 * Avoid inline comments.
 
@@ -15,17 +17,83 @@ Formatting
     # LOLZ I spelled it with a Z!
     puts 'Frank'
 
-
-* Delete trailing whitespace or configure your editor to do so.
 * Don't include spaces after `(`, `[` or before `]`, `)`.
+
+    # bad
+    ( 1, 2 )
+    [ 1, 2 ]
+
+    # good
+    (1, 2)
+    [1, 2]
+
 * If you break up an argument list, keep the arguments on their own lines and
   closing parenthesis on its own line.
+
+    # bad
+    method(really_really_really_long_argument,
+           really_really_really_long_argument,
+           really_really_really_long_argument)
+
+    # bad
+    method really_really_really_long_argument,
+           really_really_really_long_argument,
+           really_really_really_long_argument
+
+    # good
+    method(
+      really_really_really_long_argument,
+      really_really_really_long_argument,
+      really_really_really_long_argument
+    )
+
 * If you break up a hash, keep the elements on their own lines and closing curly
   brace on its own line.
+
+    # bad
+    { 'Chris',
+      'Anthony',
+      'Frank' }
+
+    # good
+    {
+      'Chris',
+      'Anthony',
+      'Frank'
+    }
+
 * Indent continued lines two spaces.
+
+    # bad
+    @line_long_enough_to_justify_a_second_line =
+    current_user.campaigns(force_reload = true)
+
+    # good
+    @line_long_enough_to_justify_a_second_line =
+      current_user.campaigns(force_reload = true)
+
 * Indent private methods equal to public methods.
-* Use 2 space indentation (no tabs).
+
+    # bad
+    private
+
+      def private_method
+      end
+
+    # good
+    private
+
+    def private_method
+    end
+
 * Use an empty line between methods.
+
+  # bad
+  def method
+  end
+  def another_method
+  end
+
 * Use newlines around multi-line blocks.
 * Use spaces around operators, after commas, after colons and semicolons, around
   `{` and before `}`.
