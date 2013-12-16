@@ -7,7 +7,7 @@ Formatting
 * Use 2 space indentation (no tabs).
 
 * Avoid inline comments.
-
+    ```Ruby
     # bad
 
     puts 'Catz' # LOLZ I spelled it with a Z!
@@ -16,9 +16,10 @@ Formatting
 
     # LOLZ I spelled it with a Z!
     puts 'Frank'
+    ```
 
 * Don't include spaces after `(`, `[` or before `]`, `)`.
-
+    ```Ruby
     # bad
     ( 1, 2 )
     [ 1, 2 ]
@@ -26,6 +27,7 @@ Formatting
     # good
     (1, 2)
     [1, 2]
+    ```
 
 * If you break up an argument list, keep the arguments on their own lines and
   closing parenthesis on its own line.
