@@ -7,6 +7,7 @@ Formatting
 * Use 2 space indentation (no tabs).
 
 * Avoid inline comments.
+
     ```Ruby
     # bad
 
@@ -19,6 +20,7 @@ Formatting
     ```
 
 * Don't include spaces after `(`, `[` or before `]`, `)`.
+
     ```Ruby
     # bad
     ( 1, 2 )
@@ -31,6 +33,7 @@ Formatting
 
 * If you break up an argument list, keep the arguments on their own lines and
   closing parenthesis on its own line.
+
     ```Ruby
     # bad
     method(really_really_really_long_argument,
@@ -74,9 +77,19 @@ Formatting
     @line_long_enough_to_justify_a_second_line =
     current_user.campaigns(force_reload = true)
 
+    def method
+      this_is_a_really_long_line_that_should_be_broken_up_over_multiple_lines_and.
+      every_line_but_the_first_is_indented
+    end
+
     # good
     @line_long_enough_to_justify_a_second_line =
       current_user.campaigns(force_reload = true)
+
+    def method
+      this_is_a_really_long_line_that_should_be_broken_up_over_multiple_lines_and.
+        every_line_but_the_first_is_indented
+    end
     ```
 
 * Indent private methods equal to public methods.
@@ -96,6 +109,7 @@ Formatting
     ```
 
 * Use an empty line between methods.
+
     ```Ruby
     # bad
     def method
@@ -112,6 +126,7 @@ Formatting
     ```
 
 * Use newlines around multi-line blocks.
+
     ```Ruby
     # bad
     [1, 2, 3].map { |element|
@@ -119,33 +134,50 @@ Formatting
     }
     puts 'THIS IS SO MATH!'
 
+    def method_with_multiline_block
+      some_method_before_block(should_be_followed_by_a_newline)
+      items.each do |item|
+        do_something_with_item
+      end
+      some_method_after_block(should_follow_after_newline)
+    end
 
-    # bad
+    # good
     [1, 2, 3].map { |element|
       element * element
     }
 
     puts 'THIS IS SO MATH!'
+
+    def method_with_multiline_block
+      some_method_before_block(should_be_followed_by_a_newline)
+
+      items.each do |item|
+        do_something_with_item
+      end
+
+      some_method_after_block(should_follow_after_newline)
+    end
     ```
 
 * Use spaces around operators, after commas, after colons and semicolons, around
   `{` and before `}`.
-* Use [Unix-style line endings] (`\n`).
-* Use [uppercase for SQL key words and lowercase for SQL identifiers].
 
-class SomeClass
-  SOME_CONSTANT = 'upper case name'
+    ```Ruby
+    # bad
+    1+1
+    a,b = nil,nil
+    nil:nil
+    nil;nil
+    {1, 2, 3}
 
-  def initialize(attributes)
-    @some_attribute = attributes[:some_attribute]
-    @another_attribute = attributes[:another_attribute]
-    @user_factory = attributes[:user_factory]
-  end
-
-  def method_with_arguments(argument_one, argument_two)
-    this_is_a_really_long_line_that_should_be_broken_up_over_multiple_lines_and.
-      every_line_but_the_first_is_indented
-  end
+    # good
+    1 + 1
+    a, b = nil, nil
+    nil : nil
+    nil; nil
+    { 1, 2, 3 }
+    ```
 
   def method_with_multiline_block
     some_method_before_block(should_be_followed_by_a_newline)
