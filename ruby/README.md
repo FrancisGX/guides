@@ -31,7 +31,7 @@ Formatting
 
 * If you break up an argument list, keep the arguments on their own lines and
   closing parenthesis on its own line.
-
+    ```Ruby
     # bad
     method(really_really_really_long_argument,
            really_really_really_long_argument,
@@ -48,10 +48,12 @@ Formatting
       really_really_really_long_argument,
       really_really_really_long_argument
     )
+    ```
 
 * If you break up a hash, keep the elements on their own lines and closing curly
   brace on its own line.
 
+    ```Ruby
     # bad
     { 'Chris',
       'Anthony',
@@ -63,9 +65,11 @@ Formatting
       'Anthony',
       'Frank'
     }
+    ```
 
 * Indent continued lines two spaces.
 
+    ```Ruby
     # bad
     @line_long_enough_to_justify_a_second_line =
     current_user.campaigns(force_reload = true)
@@ -73,9 +77,11 @@ Formatting
     # good
     @line_long_enough_to_justify_a_second_line =
       current_user.campaigns(force_reload = true)
+    ```
 
 * Indent private methods equal to public methods.
 
+    ```Ruby
     # bad
     private
 
@@ -87,14 +93,16 @@ Formatting
 
     def private_method
     end
+    ```
 
 * Use an empty line between methods.
-
-  # bad
-  def method
-  end
-  def another_method
-  end
+    ```Ruby
+    # bad
+    def method
+    end
+    def another_method
+    end
+    ```
 
 * Use newlines around multi-line blocks.
 * Use spaces around operators, after commas, after colons and semicolons, around
