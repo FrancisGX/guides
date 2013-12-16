@@ -1,10 +1,21 @@
-Style
+Ruby
 =====
 
 Formatting
 ----------
 
 * Avoid inline comments.
+
+    # bad
+
+    puts 'Catz' # LOLZ I spelled it with a Z!
+
+    # good
+
+    # LOLZ I spelled it with a Z!
+    puts 'Frank'
+
+
 * Delete trailing whitespace or configure your editor to do so.
 * Don't include spaces after `(`, `[` or before `]`, `)`.
 * If you break up an argument list, keep the arguments on their own lines and
