@@ -30,5 +30,16 @@ Share your branch.
 
     git push origin <branch-name>
 
+Merge back into dev
+
+   git checkout dev
+   git pull
+   git checkout <branch-name>
+   git rebase dev
+   git checkout dev
+   git merge <branch-name>
+   git push origin dev
+
+
 [good commit message]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
 
