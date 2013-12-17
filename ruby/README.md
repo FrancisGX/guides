@@ -219,12 +219,36 @@ Syntax
     two = 2
     ```
 
-* Avoid ternary operators. Use multi-line `if` instead to emphasize code branches.
+* Avoid ternary operators. Use multi-line `if` instead to emphasize code
+  branches.
 
-  (`boolean ? true : false`)
+      ```Ruby
+      # bad
+      user.likes_cats? ? send_cat_gifs : send_hate_mail
 
-* Avoid explicit return statements.
-* Avoid using semicolons.
+      # good
+      if user.likes_cats?
+        send_cat_gifs
+      else
+        send_hate_mail
+      end
+      ```
+
+* Avoid explicit return statements unless doing so __significantly__ decreases
+  intelligibility
+
+      ```Ruby
+      # bad
+      def method
+        return 1
+      end
+
+      # good
+      def method
+        1
+      end
+      ```
+
 * Don't use `self` explicitly anywhere except class methods (`def self.method`)
   and assignments (`self.attribute =`).
 * Prefer `detect` over `find`.
@@ -243,6 +267,7 @@ Syntax
 * Use `def` with parentheses when there are arguments.
 * Use `each`, not `for`, for iteration.
 * Use heredocs for multi-line strings.
+* Avoid using semicolons.
 
 
 Organization
