@@ -249,8 +249,24 @@ Syntax
       end
       ```
 
-* Don't use `self` explicitly anywhere except class methods (`def self.method`)
-  and assignments (`self.attribute =`).
+* Don't use `self` explicitly __anywhere__ except class methods and assignments.
+
+    ```Ruby
+    # bad
+    self.method
+
+    def Class.method
+    end
+
+    # good
+    self.attribute = 1
+
+    def self.method
+    end
+    ```
+
+
+
 * Prefer `detect` over `find`.
 * Prefer `inject` over `reduce`.
 * Prefer `map` over `collect`.
