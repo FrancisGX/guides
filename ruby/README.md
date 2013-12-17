@@ -6,6 +6,11 @@ Formatting
 * Delete trailing whitespace or configure your editor to do so.
 * Use 2 space indentation (no tabs).
 
+* Name variables, methods, and classes to reveal intent.
+* Treat acronyms as words in names (`XmlHttpRequest` not `XMLHTTPRequest`),
+  even if the acronym is the entire name (`class Html` not `class HTML`).
+* Avoid abbreviations.
+
 * Avoid inline comments.
 
     ```Ruby
@@ -179,163 +184,25 @@ Formatting
     { 1, 2, 3 }
     ```
 
-  def method_with_multiline_block
-    some_method_before_block(should_be_followed_by_a_newline)
+* Avoid types in names.
+    ```Ruby
+    # bad
+     user_array = User.all
 
-    items.each do |item|
-      do_something_with_item
-    end
+     # good
+     users = User.all
+    ```
 
-    some_method_after_block(should_follow_after_newline)
-  end
-
-  def method_with_single_line_block
-    items.map { |item| item.some_attribute }
-  end
-
-  def method_that_returns_an_array
-    [item_one, item_two]
-  end
-
-  def method_that_returns_a_hash
-    { :key => 'value' }
-  end
-
-  def method_with_large_hash
-    {
-      :one => 'value',
-      :two => 'value'
-    }
-  end
-
-  def invoke_method_with_arguments_on_multiple_lines
-    some_method(
-      i_am_a_long_variable_name_that_i_will_never_fit_on_one_line_with_others,
-      two,
-      three
-    )
-
-    # Bad:
-    some_method(one,
-                two)
-  end
-
-  def method_that_uses_infix_operators
-    left + middle - right
-  end
-
-  def method_without_arguments
-    if complex_condition?
-      positive_branch
-    else
-      negative_branch
-    end
-
-    rest_of_body
-  end
-
-  def method_that_uses_factory
-    user = @user_factory.new
-    user.ensure_authenticated!
-  end
-
-  def self.class_method
-    method_body
-  end
-
-  private
-
-  def complex_condition?
-    part_one? && part_two?
-  end
-end
-
-
-[uppercase for SQL key words and lowercase for SQL identifiers]: http://www.postgresql.org/docs/9.2/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS
-[Unix-style line endings]: http://unix.stackexchange.com/questions/23903/should-i-end-my-text-script-files-with-a-newline
-
-Naming
-------
-
-* Avoid abbreviations.
-* Avoid types in names (`user_array`).
 * Name the enumeration parameter the singular of the collection.
-* Name variables, methods, and classes to reveal intent.
-* Treat acronyms as words in names (`XmlHttpRequest` not `XMLHTTPRequest`),
-  even if the acronym is the entire name (`class Html` not `class HTML`).
-* Name variables holding a factory with `_factory` (`user_factory`).
-* Name variables created by a factory after the factory (`user_factory`
-  creates `user`).
+    ```Ruby
+    # bad
+    users.each { |u| u }
+    collection.each { |c| c }
 
-Organization
-------------
-
-* Order methods so that caller methods are earlier in the file than the methods
-  they call.
-* Order methods so that methods are as close as possible to other methods they
-  call.
-
-Sass
-----
-### Formatting
-* Use the *Scss* syntax.
-* Use hyphens when naming mixins, extends, classes, functions & variables: `span-columns` not `span_columns` or `spanColumns`.
-* Use space between property and value: `width: 20px` not `width:20px`.
-* Use a blank line above selector that has styles.
-* Prefer hex color codes `#000`.
-* Use `//` for comment blocks not `/* */`.
-* Use a space between selector and `{`.
-* Use single quotation marks for attribute selectors and property values.
-* Use only lowercase, including colors.
-* Don't add a unit specification after `0` values, unless required by a mixin.
-
-### Order
-* Use alphabetical order for declarations.
-* Place @extends and @includes at the top of your declaration list.
-* Place media queries directly after the declaration list.
-* Place concatenated selectors second.
-* Place pseudo states and elements third.
-* Place nested selectors last.
-
-### Selectors
-* Don't use ID's for style.
-* Use meaningful names: `$visual-grid-color` not `$color` or `$vslgrd-clr`.
-* Use ID and class names that are as short as possible but as long as necessary.
-* Append the prefix js- to ID's that are used by Javascript.
-* Avoid using the direct descendant selector `>`.
-* Avoid nesting more than 4 selectors deep.
-* Don't nest more than 6 selectors deep.
-* Use HTML tags on vague classes that need a qualifier like `header.application` not `.main`.
-* Avoid using the HTML tag in the class name: `section.news` not `section.news-section`.
-* Avoid using HTML tags on classes for generic markup `<div>`, `<span>`: `.widgets` not `div.widgets`.
-* Avoid using HTML tags on classes with specific class names like `.featured-articles`.
-* Avoid using comma delimited selectors.
-* Avoid nesting within a media query.
-
-### Organization
-* Use Bourbon for a Sass Library.
-* Use Neat for a grid framework.
-* Use Bitters / Base folder for style on HTML tags, global variables, global extends and global mixins.
-* Use Normalize as a browser reset.
-* Use HTML structure for ordering of selectors. Don't just put styles at the bottom of the Sass file.
-* Prefer the same file structure that is found in app/views.
-* Avoid having files longer than 100 lines.
-
-CoffeeScript
-------------
-
-* Initialize arrays using `[]`.
-* Initialize empty objects and hashes using `{}`.
-* Use `CamelCase` for classes, `lowerCamelCase` for variables and functions,
-  `SCREAMING_SNAKE_CASE` for constants, `_single_leading_underscore` for
-  private variables and functions.
-* Prefer `is` to `== ` or `===`
-* Prefer `or` and `and` to `||` and `&&`
-
-Ruby
-----
-
-[Sample](samples/ruby.rb)
+     # good
+     users.each { |user| user }
+     collection.each { |element| element }
+    ```
 
 * Avoid conditional modifiers (lines that end with conditionals).
 * Avoid multiple assignments per line (`one, two = 1, 2`).
@@ -363,19 +230,6 @@ Ruby
 * Use `each`, not `for`, for iteration.
 * Use heredocs for multi-line strings.
 
-ERb
----
-
-[Sample](samples/erb.rb)
-
-* When wrapping long lines, keep the method name on the same line as the ERb
-  interpolation operator and keep each method argument on its own line.
-* Prefer double quotes for attributes.
-
-HTML
-----
-
-* Prefer double quotes for attributes.
 
 Rails
 -----
@@ -401,6 +255,70 @@ Rails Routes
 * Avoid the `:except` option in routes.
 * Order resourceful routes alphabetically by name.
 * Use the `:only` option to explicitly state exposed routes.
+
+
+
+Organization
+------------
+
+* Order methods so that caller methods are earlier in the file than the methods
+  they call.
+* Order methods so that methods are as close as possible to other methods they
+  call.
+
+Sass
+----
+### Formatting
+* Use the *Scss* syntax.
+* Use hyphens when naming mixins, extends, classes, functions & variables: `span-columns` not `span_columns` or `spanColumns`.
+* Use space between property and value: `width: 20px` not `width:20px`.
+* Use a blank line above selector that has styles.
+* Prefer hex color codes `#000`.
+* Use `//` for comment blocks not `/* */`.
+* Use a space between selector and `{`.
+* Use single quotation marks for attribute selectors and property values.
+* Use only lowercase, including colors.
+* Don't add a unit specification after `0` values, unless required by a mixin.
+
+### Selectors
+* Use meaningful names: `$visual-grid-color` not `$color` or `$vslgrd-clr`.
+* Use ID and class names that are as short as possible but as long as necessary.
+* Append the prefix js- to ID's that are used by Javascript.
+* Avoid using the direct descendant selector `>`.
+* Avoid nesting more than 4 selectors deep.
+* Don't nest more than 6 selectors deep.
+* Use HTML tags on vague classes that need a qualifier like `header.application` not `.main`.
+* Avoid using the HTML tag in the class name: `section.news` not `section.news-section`.
+* Avoid using HTML tags on classes for generic markup `<div>`, `<span>`: `.widgets` not `div.widgets`.
+* Avoid using HTML tags on classes with specific class names like `.featured-articles`.
+* Avoid using comma delimited selectors.
+* Avoid nesting within a media query.
+
+CoffeeScript
+------------
+
+* Initialize arrays using `[]`.
+* Initialize empty objects and hashes using `{}`.
+* Use `CamelCase` for classes, `lowerCamelCase` for variables and functions,
+  `SCREAMING_SNAKE_CASE` for constants, `_single_leading_underscore` for
+  private variables and functions.
+* Prefer `is` to `== ` or `===`
+* Prefer `or` and `and` to `||` and `&&`
+
+ERb
+---
+
+[Sample](samples/erb.rb)
+
+* When wrapping long lines, keep the method name on the same line as the ERb
+  interpolation operator and keep each method argument on its own line.
+* Prefer double quotes for attributes.
+
+HTML
+----
+
+* Prefer double quotes for attributes.
+
 
 Background Jobs
 ---------------
@@ -446,14 +364,6 @@ Testing
 * Use scenario titles that describe the success and failure paths.
 * Use spec/features directory to store feature specs.
 * Use spec/support/features for support code related to feature specs.
-
-#### Factories
-
-* Order `factories.rb` contents: sequences, traits, factory definitions.
-* Order factory attributes: implicit attributes, explicit attributes,
-  child factory definitions. Each section's attributes are alphabetical.
-* Order factory definitions alphabetically by factory name.
-* Use one factories.rb file per project.
 
 #### Unit Tests
 
