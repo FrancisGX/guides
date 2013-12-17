@@ -6,11 +6,78 @@ Formatting
 * Delete trailing whitespace or configure your editor to do so.
 * Use 2 space indentation (no tabs).
 
+* Indent continued lines two spaces.
+
+    ```Ruby
+    # bad
+    @line_long_enough_to_justify_a_second_line =
+    current_user.campaigns(force_reload = true)
+
+    def method
+      this_is_a_really_long_line_that_should_be_broken_up_over_multiple_lines_and.
+      every_line_but_the_first_is_indented
+    end
+
+    # good
+    @line_long_enough_to_justify_a_second_line =
+      current_user.campaigns(force_reload = true)
+
+    def method
+      this_is_a_really_long_line_that_should_be_broken_up_over_multiple_lines_and.
+        every_line_but_the_first_is_indented
+    end
+    ```
+
+* Indent private methods equal to public methods.
+
+    ```Ruby
+    # bad
+    private
+
+      def private_method
+      end
+
+    # good
+    private
+
+    def private_method
+    end
+    ```
+
+Naming
+------
 * Name variables, methods, and classes to reveal intent.
-* Treat acronyms as words in names (`XmlHttpRequest` not `XMLHTTPRequest`),
-  even if the acronym is the entire name (`class Html` not `class HTML`).
+* Use snake_case for methods and variables.
+* Use CamelCase for classes and modules.
+* Keep acronyms like HTTP, RFC, XML uppercase.
+* Use SCREAMING_SNAKE_CASE for other constants.
 * Avoid abbreviations.
 
+* The names of predicate methods (methods that return a boolean value) should
+  end in a question mark. (i.e. Array#empty?).
+
+* Avoid types in names.
+    ```Ruby
+    # bad
+     user_array = User.all
+
+     # good
+     users = User.all
+    ```
+
+* Name the enumeration parameter the singular of the collection.
+    ```Ruby
+    # bad
+    users.each { |u| u }
+    collection.each { |c| c }
+
+     # good
+     users.each { |user| user }
+     collection.each { |element| element }
+    ```
+
+Syntax
+------
 * Avoid inline comments.
 
     ```Ruby
@@ -22,6 +89,25 @@ Formatting
 
     # LOLZ I spelled it with a Z!
     puts 'Frank'
+    ```
+
+* Use spaces around operators, after commas, after colons and semicolons, around
+  `{` and before `}`.
+
+    ```Ruby
+    # bad
+    1+1
+    a,b = nil,nil
+    nil:nil
+    nil;nil
+    {1, 2, 3}
+
+    # good
+    1 + 1
+    a, b = nil, nil
+    nil : nil
+    nil; nil
+    { 1, 2, 3 }
     ```
 
 * Don't include spaces after `(`, `[` or before `]`, `)`.
@@ -75,61 +161,6 @@ Formatting
     }
     ```
 
-* Indent continued lines two spaces.
-
-    ```Ruby
-    # bad
-    @line_long_enough_to_justify_a_second_line =
-    current_user.campaigns(force_reload = true)
-
-    def method
-      this_is_a_really_long_line_that_should_be_broken_up_over_multiple_lines_and.
-      every_line_but_the_first_is_indented
-    end
-
-    # good
-    @line_long_enough_to_justify_a_second_line =
-      current_user.campaigns(force_reload = true)
-
-    def method
-      this_is_a_really_long_line_that_should_be_broken_up_over_multiple_lines_and.
-        every_line_but_the_first_is_indented
-    end
-    ```
-
-* Indent private methods equal to public methods.
-
-    ```Ruby
-    # bad
-    private
-
-      def private_method
-      end
-
-    # good
-    private
-
-    def private_method
-    end
-    ```
-
-* Use an empty line between methods.
-
-    ```Ruby
-    # bad
-    def method
-    end
-    def another_method
-    end
-
-    # good
-    def method
-    end
-
-    def another_method
-    end
-    ```
-
 * Use newlines around multi-line blocks.
 
     ```Ruby
@@ -165,50 +196,33 @@ Formatting
     end
     ```
 
-* Use spaces around operators, after commas, after colons and semicolons, around
-  `{` and before `}`.
+* Avoid conditional modifiers (lines that end with conditionals.)
 
     ```Ruby
     # bad
-    1+1
-    a,b = nil,nil
-    nil:nil
-    nil;nil
-    {1, 2, 3}
+    puts "Hi" if user.likes_to_be_greeted?
 
     # good
-    1 + 1
-    a, b = nil, nil
-    nil : nil
-    nil; nil
-    { 1, 2, 3 }
+    if user.likes_to_be_greeted?
+      puts "Hi  "
+    end
     ```
 
-* Avoid types in names.
+* Avoid multiple assignments per line.
+
     ```Ruby
     # bad
-     user_array = User.all
+    one, two = 1, 2
 
-     # good
-     users = User.all
+    # good
+    one = 1
+    two = 2
     ```
 
-* Name the enumeration parameter the singular of the collection.
-    ```Ruby
-    # bad
-    users.each { |u| u }
-    collection.each { |c| c }
+* Avoid ternary operators. Use multi-line `if` instead to emphasize code branches.
 
-     # good
-     users.each { |user| user }
-     collection.each { |element| element }
-    ```
+  (`boolean ? true : false`)
 
-* Avoid conditional modifiers (lines that end with conditionals).
-* Avoid multiple assignments per line (`one, two = 1, 2`).
-* Avoid organizational comments (`# Validations`).
-* Avoid ternary operators (`boolean ? true : false`). Use multi-line `if`
-  instead to emphasize code branches.
 * Avoid explicit return statements.
 * Avoid using semicolons.
 * Don't use `self` explicitly anywhere except class methods (`def self.method`)
@@ -229,6 +243,27 @@ Formatting
 * Use `def` with parentheses when there are arguments.
 * Use `each`, not `for`, for iteration.
 * Use heredocs for multi-line strings.
+
+
+Organization
+------------
+* Avoid organizational comments (`# Validations`).
+* Use an empty line between methods.
+
+    ```Ruby
+    # bad
+    def method
+    end
+    def another_method
+    end
+
+    # good
+    def method
+    end
+
+    def another_method
+    end
+    ```
 
 
 Rails
