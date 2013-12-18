@@ -312,35 +312,21 @@ Organization
 Rails
 -----
 
-* Avoid `member` and `collection` routes.
 * Use private instead of protected when defining controller methods.
 * Name date columns with `_on` suffixes.
 * Name datetime columns with `_at` suffixes.
 * Name initializers for their gem name.
-* Order ActiveRecord associations alphabetically by attribute name.
-* Order ActiveRecord validations alphabetically by attribute name.
 * Order controller contents: filters, public methods, private methods.
 * Order model contents: constants, macros, public methods, private methods.
 * Put application-wide partials in the [`app/views/application`] directory.
-* Use `def self.method`, not the `scope :method` DSL.
-* Use the default `render 'partial'` syntax over `render partial: 'partial'`.
-
-[`app/views/application`]: http://asciicasts.com/episodes/269-template-inheritance
-
-Rails Routes
-------------
-
-* Avoid the `:except` option in routes.
-* Order resourceful routes alphabetically by name.
-* Use the `:only` option to explicitly state exposed routes.
-
-
+* Put shared partials in the [`app/views/shared`] directory.
 
 Organization
 ------------
 
 * Order methods so that caller methods are earlier in the file than the methods
   they call.
+
 * Order methods so that methods are as close as possible to other methods they
   call.
 
