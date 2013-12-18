@@ -313,12 +313,19 @@ Rails
 -----
 
 * Use private instead of protected when defining controller methods.
+
 * Name date columns with `_on` suffixes.
+
 * Name datetime columns with `_at` suffixes.
+
 * Name initializers for their gem name.
+
 * Order controller contents: filters, public methods, private methods.
+
 * Order model contents: constants, macros, public methods, private methods.
+
 * Put application-wide partials in the [`app/views/application`] directory.
+
 * Put shared partials in the [`app/views/shared`] directory.
 
 Organization
@@ -334,20 +341,12 @@ Organization
 ERb
 ---
 
-[Sample](samples/erb.rb)
-
-* When wrapping long lines, keep the method name on the same line as the ERb
-  interpolation operator and keep each method argument on its own line.
-* Prefer double quotes for attributes.
+* It's a wild world out there, use your best judgment.
 
 Email
 -----
 
 * Use one `ActionMailer` for the app. Name it `Mailer`.
-* Use the user's name in the `From` header and email in the `Reply-To` when
-  [delivering email on behalf of the app's users].
-
-[delivering email on behalf of the app's users]: http://robots.thoughtbot.com/post/3215611590/recipe-delivering-email-on-behalf-of-users
 
 Testing
 -------
