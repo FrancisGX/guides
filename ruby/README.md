@@ -249,25 +249,40 @@ Syntax
       end
       ```
 
-* Don't use `self` explicitly __anywhere__ except class methods and assignments.
+* Use `self` to define class methods instead of explicitly stating the class.
+      ```Ruby
+      # bad
+      class ClassName
+        def ClassName.method
+        end
+      end
+
+      # good
+      class ClassName
+        def self.method
+        end
+      end
+      ```
+
+* Don't use `class << self` when defining a group of class methods.
+
+* Prefer implicit `self` to explicit `self`.
 
     ```Ruby
     # bad
-    self.method
-
-    def Class.method
+    def instance_method
+      self.private_method
     end
 
     # good
-    self.attribute = 1
-
-    def self.method
+    def instance_method
+      private_method
     end
     ```
 
+* Basically just don't use `self` explicitly __anywhere__ except class methods
+  and assignments.
 
-
-* Prefer `detect` over `find`.
 * Prefer `inject` over `reduce`.
 * Prefer `map` over `collect`.
 * Prefer `select` over `find_all`.
@@ -277,9 +292,6 @@ Syntax
 * Use `&&` and `||` for Boolean expressions.
 * Use `{...}` for single-line blocks. Use `do..end` for multi-line blocks.
 * Use `?` suffix for predicate methods.
-* Use `CamelCase` for classes and modules, `snake_case` for variables and
-  methods, `SCREAMING_SNAKE_CASE` for constants.
-* Use `def self.method`, not `def Class.method` or `class << self`.
 * Use `def` with parentheses when there are arguments.
 * Use `each`, not `for`, for iteration.
 * Use heredocs for multi-line strings.
