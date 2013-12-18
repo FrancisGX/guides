@@ -340,14 +340,6 @@ ERb
   interpolation operator and keep each method argument on its own line.
 * Prefer double quotes for attributes.
 
-
-Background Jobs
----------------
-
-* Define a `PRIORITY` constant at the top of delayed job classes.
-* Define two public methods: `self.enqueue` and `perform`.
-* Put delayed job classes in `app/jobs`.
-
 Email
 -----
 
