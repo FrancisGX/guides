@@ -291,6 +291,12 @@ Organization
 
 * Avoid organizational comments (`# Validations`).
 
+* Order methods so that caller methods are earlier in the file than the methods
+  they call.
+
+* Order methods so that methods are as close as possible to other methods they
+  call.
+
 * Use an empty line between methods.
 
     ```Ruby
@@ -308,14 +314,29 @@ Organization
     end
     ```
 
-Organization
-------------
+* Don't use an empty line after class definition or before class `end`.
 
-* Order methods so that caller methods are earlier in the file than the methods
-  they call.
+    ```Ruby
+    # bad
+    class ClassName
 
-* Order methods so that methods are as close as possible to other methods they
-  call.
+      def method
+      end
+
+      def another_method
+      end
+
+    end
+
+    # good
+    class ClassName
+      def method
+      end
+
+      def another_method
+      end
+    end
+    ```
 
 Rails
 -----
