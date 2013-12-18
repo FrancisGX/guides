@@ -283,20 +283,9 @@ Syntax
 * Basically just don't use `self` explicitly __anywhere__ except class methods
   and assignments.
 
-* Prefer `inject` over `reduce`.
-* Prefer `map` over `collect`.
-* Prefer `select` over `find_all`.
-* Prefer single quotes for strings.
-* Use `_` for unused block parameters.
-* Use `%{}` for single-line strings needing interpolation and double-quotes.
 * Use `&&` and `||` for Boolean expressions.
-* Use `{...}` for single-line blocks. Use `do..end` for multi-line blocks.
-* Use `?` suffix for predicate methods.
-* Use `def` with parentheses when there are arguments.
 * Use `each`, not `for`, for iteration.
-* Use heredocs for multi-line strings.
 * Avoid using semicolons.
-
 
 Organization
 ------------
