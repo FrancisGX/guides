@@ -211,17 +211,17 @@ Syntax
 * Avoid ternary operators. Use multi-line `if` instead to emphasize code
   branches.
 
-      ```Ruby
-      # bad
-      user.likes_cats? ? send_cat_gifs : send_hate_mail
+    ```Ruby
+    # bad
+    user.likes_cats? ? send_cat_gifs : send_hate_mail
 
-      # good
-      if user.likes_cats?
-        send_cat_gifs
-      else
-        send_hate_mail
-      end
-      ```
+    # good
+    if user.likes_cats?
+      send_cat_gifs
+    else
+      send_hate_mail
+    end
+    ```
 
 * Avoid explicit return statements unless doing so __significantly__ decreases
   intelligibility
