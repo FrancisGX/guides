@@ -353,11 +353,7 @@ Testing
 -------
 
 * Avoid the `private` keyword in specs.
-* Order ActiveRecord association tests alphabetically by attribute name.
-* Order ActiveRecord validation tests alphabetically by attribute name.
 * Prefer `eq` to `==` in RSpec.
-* Separate setup, exercise, verification, and teardown phases with newlines.
 * Use RSpec's [`expect` syntax].
-* Use `not_to` instead of `to_not` in RSpec expectations.
 
 [`expect` syntax]: http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax
