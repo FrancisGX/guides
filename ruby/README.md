@@ -308,6 +308,14 @@ Organization
     end
     ```
 
+Organization
+------------
+
+* Order methods so that caller methods are earlier in the file than the methods
+  they call.
+
+* Order methods so that methods are as close as possible to other methods they
+  call.
 
 Rails
 -----
@@ -328,25 +336,6 @@ Rails
 
 * Put shared partials in the [`app/views/shared`] directory.
 
-Organization
-------------
-
-* Order methods so that caller methods are earlier in the file than the methods
-  they call.
-
-* Order methods so that methods are as close as possible to other methods they
-  call.
-
-
-ERb
----
-
-* It's a wild world out there, use your best judgment.
-
-Email
------
-
-* Use one `ActionMailer` for the app. Name it `Mailer`.
 
 Testing
 -------
@@ -356,3 +345,13 @@ Testing
 * Use RSpec's [`expect` syntax].
 
 [`expect` syntax]: http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax
+
+Email
+-----
+
+* Use one `ActionMailer` for the app. Name it `Mailer`.
+
+ERb
+---
+
+* It's a wild world out there, use your best judgment.
