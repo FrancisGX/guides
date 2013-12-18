@@ -224,7 +224,7 @@ Syntax
     ```
 
 * Avoid explicit return statements unless doing so __significantly__ decreases
-  intelligibility
+  intelligibility.
 
       ```Ruby
       # bad
@@ -239,19 +239,20 @@ Syntax
       ```
 
 * Use `self` to define class methods instead of explicitly stating the class.
-      ```Ruby
-      # bad
-      class ClassName
-        def ClassName.method
-        end
-      end
 
-      # good
-      class ClassName
-        def self.method
-        end
+    ```Ruby
+    # bad
+    class ClassName
+      def ClassName.method
       end
-      ```
+    end
+
+    # good
+    class ClassName
+      def self.method
+      end
+    end
+    ```
 
 * Don't use `class << self` when defining a group of class methods.
 
