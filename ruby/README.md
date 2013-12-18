@@ -4,6 +4,7 @@ Ruby
 Formatting
 ----------
 * Delete trailing whitespace or configure your editor to do so.
+
 * Use 2 space indentation (no tabs).
 
 * Indent continued lines two spaces.
@@ -52,7 +53,6 @@ Naming
 * Keep acronyms like HTTP, RFC, XML uppercase.
 * Use SCREAMING_SNAKE_CASE for other constants.
 * Avoid abbreviations.
-
 * The names of predicate methods (methods that return a boolean value) should
   end in a question mark. (i.e. Array#empty?).
 
@@ -69,11 +69,13 @@ Naming
     ```Ruby
     # bad
     users.each { |u| u }
+
     collection.each { |c| c }
 
-     # good
-     users.each { |user| user }
-     collection.each { |element| element }
+    # good
+    users.each { |user| user }
+
+    collection.each { |element| element }
     ```
 
 Syntax
@@ -82,13 +84,11 @@ Syntax
 
     ```Ruby
     # bad
-
     puts 'Catz' # LOLZ I spelled it with a Z!
 
     # good
-
     # LOLZ I spelled it with a Z!
-    puts 'Frank'
+    puts 'Catz'
     ```
 
 * Use spaces around operators, after commas, after colons and semicolons, around
@@ -165,11 +165,6 @@ Syntax
 
     ```Ruby
     # bad
-    [1, 2, 3].map { |element|
-      element * element
-    }
-    puts 'THIS IS SO MATH!'
-
     def method_with_multiline_block
       some_method_before_block(should_be_followed_by_a_newline)
       items.each do |item|
@@ -179,12 +174,6 @@ Syntax
     end
 
     # good
-    [1, 2, 3].map { |element|
-      element * element
-    }
-
-    puts 'THIS IS SO MATH!'
-
     def method_with_multiline_block
       some_method_before_block(should_be_followed_by_a_newline)
 
@@ -204,7 +193,7 @@ Syntax
 
     # good
     if user.likes_to_be_greeted?
-      puts "Hi  "
+      puts "Hi"
     end
     ```
 
