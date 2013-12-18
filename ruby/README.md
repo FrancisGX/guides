@@ -48,11 +48,17 @@ Formatting
 Naming
 ------
 * Name variables, methods, and classes to reveal intent.
+
 * Use snake_case for methods and variables.
+
 * Use CamelCase for classes and modules.
+
 * Keep acronyms like HTTP, RFC, XML uppercase.
+
 * Use SCREAMING_SNAKE_CASE for other constants.
+
 * Avoid abbreviations.
+
 * The names of predicate methods (methods that return a boolean value) should
   end in a question mark. (i.e. Array#empty?).
 
@@ -80,6 +86,7 @@ Naming
 
 Syntax
 ------
+
 * Avoid inline comments.
 
     ```Ruby
@@ -274,12 +281,16 @@ Syntax
   and assignments.
 
 * Use `&&` and `||` for Boolean expressions.
+
 * Use `each`, not `for`, for iteration.
+
 * Avoid using semicolons.
 
 Organization
 ------------
+
 * Avoid organizational comments (`# Validations`).
+
 * Use an empty line between methods.
 
     ```Ruby
