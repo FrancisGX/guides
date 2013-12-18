@@ -226,17 +226,17 @@ Syntax
 * Avoid explicit return statements unless doing so __significantly__ decreases
   intelligibility.
 
-      ```Ruby
-      # bad
-      def method
-        return 1
-      end
+    ```Ruby
+    # bad
+    def method
+      return 1
+    end
 
-      # good
-      def method
-        1
-      end
-      ```
+    # good
+    def method
+      1
+    end
+    ```
 
 * Use `self` to define class methods instead of explicitly stating the class.
 
